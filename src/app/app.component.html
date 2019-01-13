@@ -1,21 +1,960 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<div class="content">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">
+      <img src="assets/img/logo.png" class="rounded logo" alt="Logo" (click)="setActiveMilestone(0)">
+    </a>
+    <button class="navbar-toggler" type="button" (click)="toggleNavbar()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" [ngClass]="{ 'show': navbarOpen }">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item" *ngFor="let milestone of [1,2,3,4,5,6,7,8]">
+          <a class="nav-link" href="#" (click)="setActiveMilestone(milestone)">M-{{ milestone }}</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
-<router-outlet></router-outlet>
+  <div class="container-fluid">
+    <div *ngIf="activeMilestone === 0">
+      <div class="row">
+        <div class="col-12">
+          <h1 class="mainTitle">Fiki</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h5 class="info">BookATable te ajuta sa economisesti timp si sa ai o experienta mai placuta atunci cand vrei
+            sa mergi la un local cu prietenii sau familia ta.</h5>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="activeMilestone === 1">
+      <div class="row">
+        <div class="col-12">
+          <h1 class="mainTitle">Milestone 1</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <p><b>BookATable</b> este o aplicatie web ce poate fi accesata de pe orice dispozitiv si iti pune la
+            dispozitie o serie de functionalitati menite sa te ajute atunci cand vrei sa mergi la un local.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h3 class="subTitle">Echipa</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="card-columns">
+            <div class="card team">
+              <img class="card-img-top rounded" src="assets/img/echipa/Anghel.jpg" alt="Popovici Bogdan">
+              <div class="card-body">
+                <h5 class="card-title">Maria-Alexandra-Gerogiana Anghel</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Project Manager</h6>
+                <p class="card-text">anghel.mag@gmail.com</p>
+              </div>
+            </div>
+            <div class="card team">
+              <img class="card-img-top rounded" src="assets/img/echipa/Popovici.jpg" alt="Popovici Bogdan">
+              <div class="card-body">
+                <h5 class="card-title">Bogdan Constantin Popovici</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Project Owner</h6>
+                <p class="card-text">popovicibogdanconstantin@gmail.com</p>
+              </div>
+            </div>
+            <div class="card team">
+              <img class="card-img-top rounded" src="assets/img/echipa/Ciuperca.jpg" alt="Popovici Bogdan">
+              <div class="card-body">
+                <h5 class="card-title">Cristian-Adrian Ciuperca</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Marketing</h6>
+                <p class="card-text">crciuperca@gmail.com</p>
+              </div>
+            </div>
+            <div class="card team">
+              <img class="card-img-top rounded" src="assets/img/echipa/Badea.jpg" alt="Popovici Bogdan">
+              <div class="card-body">
+                <h5 class="card-title">Cosmin-Valentin Badea</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Back-end Developer</h6>
+                <p class="card-text">cosmin.badea101@gmail.com</p>
+              </div>
+            </div>
+            <div class="card team">
+              <img class="card-img-top rounded" src="assets/img/echipa/Constantinescu.jpg" alt="Popovici Bogdan">
+              <div class="card-body">
+                <h5 class="card-title">Ioana-Maria Constantinescu</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Front-end Developer</h6>
+                <p class="card-text">const.maria16@gmail.com</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h3 class="subTitle">Problema</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <ul>
+            <li><b>Rezervarea unei mese</b> - de multe ori se intampla sa nu ai mult timp la dispozitie sau sa te
+              decizi in ultimul moment sa faci o rezervare, insa metodela traditionale (apel telefonic, sms, email) au
+              sanse destul de mari sa nu aiba rezultate dorite. Motivul poate fi divers, de la asteptarea indelungata
+              pentru preluarea unei rezervari pana la incurcarea rezervarilor.</li>
+            <li><b>Comanda</b> - daca te gasesti intr-un local aglomerat exista posibilitatea sa astepti foarte mult
+              pentru un meniu. La acest timp se mai adauga periada in care consulti meniul si perioada in care
+              ospatarul preia comanda. Pe langa asta exista posibilitatea sa ai neplacerea sa afli ca comenzile au fost
+              incurcate si ajungi sa platesti ceva ce nu ai comandat.</li>
+            <li><b>Plata</b> - dupa ce ai mancat si te gandesti sa pleci exista posibilitatea sa te tot trezesti cu
+              mana ridicata pentru a cere nota dar fara nici un rezultat. O alta problema este cand vii cu mai multi
+              colegi/prieteni si ai vrea ca fiecare sa isi plateasca parte lui si exista posibilitatea ca ei sa nu aiba
+              suma exacta si astfel ajungeti sa calculati cat si cum ramane fiecare dator celui care a platit mai mult.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h3 class="subTitle">Solutie</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <p>Aplicata <b>BookATable</b> vine in intampinarea acestor probleme. Acecasta dispune de un numar mare de
+            localuri diversificate care iti da posibilitilatea sa gasesti ceea ce cauti si are o interfata foarte usor
+            de folosit accesibila de pe orice dispuzitiv. Aplicatia dispune de multe functionalitati menita sa iti
+            scurteze timpul si sa rezolve problemele enumerate:</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <ul>
+            <li><b>Rezervarea unei mese</b> - poti cauta un local din orasul tau, poti alege un local in functie de
+              specific sau poti cauta un local care este cat mai aproape de tine. Ai posibilitatea sa rezervi la
+              localul preferat si vei fi notificat in timp real cu statusul rezervarii. Gasesti toate informatiile
+              despre local si ai contact cu ei in timp real. Ai posibiliatea sa iti creezi un grup unde poti comunica
+              cu prietenii tai. Prin intermediul grupului fiecare membru are acces la informatiile rezervarii in acest
+              fel va sti cand si unde se desfasoara intalnirea.</li>
+            <li><b>Comanda</b> - aplicatia iti pune la dispozitie meniul online, ceea ce iti da posibilitatea sa
+              comanzi ceea ce iti doresti prin intermediul aplicatiei inainte de a ajunge la local sau dupa ce ai ajuns
+              la local. Vei sti ce ai comandat, cat costa comanda si care este status comenzii. Prin intermediul
+              grupului fiecare membru comanda in contul propriu astfel fiecare va sti ce a comandat si ce are de
+              platit.</li>
+            <li><b>Plata</b> - ai posibilitate sa platesti online ceea ce ai comandat, iar factura iti va fi trimisa in
+              aplicatie si o poti descarca sau trimite pe mail oricand, iar prin intermediul grupului fiecare membru
+              isi poate achita propria consumatie.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h3 class="subTitle">Segmentul de clienti</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <p>Exista doua categorii principale de clieti: </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <ul>
+            <li><b>Consumatorii</b> - sau cei ce folosesc serviciile oferite de catre localuri. Acestia se impart in
+              mai multe categorii in functi de venit si ocupatie:
+              <ul>
+                <li><b>Studenti/elevi fara o ocupatie aducatoare de venit</b> - studentii/elevii folosesc cel mai des
+                  mediile online astfel ca, chiar daca nu au un venit ne putem astepta de la ei sa o folosesca sau sa o
+                  recomande mai departe.</li>
+                <li><b>Persoane cu venit</b> - Cei ce au un venit sunt mai dispusi sa mearga la localuri si astfel sa
+                  folosesca aplicatia.</li>
+                <li><b>Turisti</b> - avem parte de turisti in fiecare an si se intampla sa ajunga la localuri unde nu
+                  se vorbeste limba engleza. Prin intermediul aplicatie acestia pot rezerva, comanda si plati prin
+                  intermediul aplicatie foarte usor.</li>
+              </ul>
+            </li>
+            <li><b>Colaboratorii</b> - acestea sunt localurile ce ofera servicii consumatorilor. </li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h3 class="subTitle">Competitie si Avantaje</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <p>Pe piata exista competitori insa acestia dispun de o paleta redusa de functionalitati:</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="card-columns">
+            <div class="card competitor">
+              <img class="card-img-top rounded" src="assets/img/competitie/iaLoc.png" alt="iaLoc">
+              <div class="card-body">
+                <h5 class="card-title">iaLoc</h5>
+                <h6 class="card-subtitle mb-2"><a class="text-muted" href="https://ialoc.ro/bucuresti" target="_blank">ialoc.ro</a></h6>
+                <ul class="card-text">
+                  <li>rezervare la un local</li>
+                  <li>disponibil in 4 orase</li>
+                </ul>
+              </div>
+            </div>
+            <div class="card competitor">
+              <img class="card-img-top rounded" src="assets/img/competitie/out4food.png" alt="out4food">
+              <div class="card-body">
+                <h5 class="card-title">Out4Food</h5>
+                <h6 class="card-subtitle mb-2"><a class="text-muted" href="https://citygrill.ro/ro/out4food" target="_blank">citygrill.ro</a></h6>
+                <ul class="card-text">
+                  <li>rezervari in grupul City Grill</li>
+                  <li>doar in capitala</li>
+                  <li>comenzi online</li>
+                  <li>platesti online</li>
+                </ul>
+              </div>
+            </div>
+            <div class="card competitor">
+              <img class="card-img-top rounded" src="assets/img/competitie/foodpanda.png" alt="foodpanda">
+              <div class="card-body">
+                <h5 class="card-title">FoodPanda</h5>
+                <h6 class="card-subtitle mb-2"><a class="text-muted" href="https://www.foodpanda.ro/" target="_blank">foodpanda.ro</a></h6>
+                <ul class="card-text">
+                  <li>comenzi online</li>
+                  <li>platesti online</li>
+                  <li>livrare la domiciliu</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <p>Avantajele noastre sunt:</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <ul>
+            <li>filtrarea localurilor in functie de factori multipli</li>
+            <li>rezervari la localurile din toata tara</li>
+            <li>comenzi online inante de a ajunge la local sau dupa ce s-a ajuns la local</li>
+            <li>gestionarea de grupuri</li>
+            <li>posibilitatea achitarii notei de plata online per client</li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h3 class="subTitle">Masuratori</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <ul>
+            <li>numarul de clienti si localuri</li>
+            <li>venitul</li>
+            <li>utilizatorii ce folosesc aplicatia in mod regulat</li>
+            <li>tranzactiile inchetiate cu succes</li>
+            <li>trafic in aplicatie</li>
+            <li>feedback</li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h3 class="subTitle">Structura costurilor</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <ul>
+            <li>DNS name</li>
+            <li>Host</li>
+            <li>Development si mentenanta</li>
+            <li>Suport</li>
+            <li>Promovare</li>
+            <li>Cercetare de piata</li>
+            <li>Colectare feedback</li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h3 class="subTitle">Fluxuri de venit</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <ul>
+            <li>Comision la achitarea notei de plata</li>
+            <li>Diferite pachete ce cuprind functionalitati personalizate oferite localurilor</li>
+            <li>Promovare localuri</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="activeMilestone === 2">
+      <div class="row">
+        <div class="col-12">
+          <h1 class="mainTitle">Milestone 2</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <p>Aceasta etapa are ca scop validarea problemei si solute identificate.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h3 class="subTitle">Identificarea problemei</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <p>Idea aplicatiei a pornit in urma unei neplaceri intalnite de unul din colegii nostri, care a mers la un
+            local impreuna cu prietenii sai. Acesta a constatat atunci cand i s-a adus comanda ca nu era defapt ce a
+            comandat. Ospatarul nu notase comanda in schimb sustinea ca el are dreptate. Aceasta problema cat si alte
+            asemanatoare pot fi intalnite in viata de zi cu zi. Am acceptat aceasta provocare si am intrebat colegii si
+            pritenii daca au intalnit neplaceri asemanatoare. Nu am fost de loc surprinsi sa aflam ca atat noi cat si
+            multi altii ar dori o solutie care sa imbunatateasca experienta clientilor.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h3 class="subTitle">Solutia propusa</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <p>Solutia propusa de noi este o aplicatie cu interfata intuitiv si usor de folosit care sa ofere
+            functionalitati menite sa rezolve
+            neplacerile intalnite. Aplicatia iti permite sa cauti localul tau preferat dupa nume, locatie, tip sau
+            bucatarie. O data ce ai ales unde sa mergi iti poti face rezervarea online alegand data si ora la care vrei
+            sa mergi. Alegi ce numar de insotitori vei avea sau iti poti face un grup si ii poti adauga pe toti
+            apropiatii tai cu care planuiesti sa mergi. Tu sau fiecare membru al grupului alege din meniul online ce
+            vrea sa consume. Poti plati online pentru toti sau fiecare membru al grupului isi achita consumatia. Vei
+            avea acces la toate detaliile comenzii pe aplicatia BookATable.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h3 class="subTitle">Descoperirea eventualilor utilizatori</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <p>Inca de la inceput am inteles nevoia de consumatori(clientii localurilor) deoarece acestia sunt cei care
+            vor folosi aplicatia pentru a interactiona cu localurile, insa fara colaboratori(localuri) stim ca
+            aplicatia nu v-a avea succes. Acestia sunt cei a caror informatii le utilizam pentru informarea clientilor
+            si tot ei sunt ce care vor genera veniturile in functie de numarul de consumatori. Atfel putem deduce de
+            aici ca exista o stransa legatura intre consumatori si colaboratori, care determina si succesul aplicatie.
+            Pentru a determina cat mai bine succesul aplicatiei am decis sa comunicam prin mai multe mijloace:</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <ul>
+            <li>Interviuri verbale cu pritenii si colegii pentru a valida daca problemele identificate de noi exista si
+              daca solutia este buna</li>
+            <li>Interviuri verbale cu managerii si ospatarii pentru a vedea daca colaborarea cu localuri este posibila
+              si daca solutia gasita de noi imbunatateste activitatea acestora.</li>
+            <li>Studiu de caz distribuit pe retelele de socializare - am folosit google forms pentru a crea un <strong><a
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSew4ZjfKIsWA-mYAztL_2IaBSkNDe7MKzxP8fiTb567hyvxdw/viewform"
+                  target="_blank">studiu de caz</a></strong> ce l-am distribuit pe retele de socializare precum
+              facebook,
+              whatApp
+              cat si pe unele forum-uri ale unor restaurante mai populare. Acest studiu a fost completat de aproximativ
+              200 de oameni iar <strong><a href="https://docs.google.com/spreadsheets/d/1VZsQlSYu0q9zxRN6x6HlpOfqTkf77-ITaNL31igCB8c/edit?usp=sharing"
+                  target="_blank">rezultatele</a></strong> arata astfel:
+              <ul>
+                <li>Peste 60% dintre participanti ne-au raspuns ca petrec la local intre 30 de minute si 1 ora, iar 40%
+                  au
+                  spus ca petrec mai mult de 1 ora</li>
+                <li>Rezervarea prin telefon este preferata de 53% dintre participanti, iar 47% ar prefera rezervarea
+                  online</li>
+                <li>70% dintre participanti prefera sa fie gata mancarea o data ce au ajuns la local, iar 30% ar
+                  prefera sa
+                  se decida o data ce au ajuns la local</li>
+                <li>Plata online sau cu cardul este preferata de 65% dintre participanti, iar plata cash reprezinta o
+                  varianta comoda pentru 35% dintre participanti</li>
+                <li>Intr-o sectiune in care am incercat sa facem un top al problemelor intalnite de noi, 70% dintre
+                  participanti au fost de acord ca asteptarea comenzii este o problema, urmata de 50% dintre
+                  participanti
+                  care au considerat ca asteptarea notei de plata este la fel de importanta. 40% dintre participanti au
+                  fost de acord ca modalitatea de rezercare sau modalitatea de a face comanda este de asemenea
+                  problematica.</li>
+                <li>Am avut o sectiune de comenturi in care fiecare a fost incurajat sa exprime ce neplaceri a avut sau
+                  ce
+                  imbunatatiri ar recomanda. Cei mai multi dintre ei au fost nemultumiti de ospitalitatea angajatilor
+                  sau
+                  rapiditatea cu care acestia onorau comenzile, iar ca recomandare pentru a rezolva acest neajuns a
+                  fost
+                  creerea unui dispoziitiv care sa permita comenzile, reducandu-se astfel contactul cu ospatarii. Au
+                  fost
+                  persoane care au exprimat ca imbunatatiri posibilitatea platii online si impartirea notei de plata. O
+                  mare parte dintre participanti nu cunosc aplicatiile existente sau nu sunt multumiti de ce pot oferi
+                  astfel ca si-au exprimat nemultumirea fata de procesul de rezervare a unei mese.</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h3 class="subTitle">Schimbarea perspectivei noastre</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <p>Putem spune ca perspectiva asupra aplicatie noastre nu a fost puternic influentata ci din contra, a fost
+            foarte sprijinita. Conform cu studiul de caz putem deduce ca exista neplaceri in colaborarea clientilor
+            cu localurile, iar problemele identificate de noi exista. Luand in considerare sugestiile
+            persoanelor implicate putem deduce ca solutia este una dorita si ca ar putea imbunatatirea experientii
+            consumatorilor. Managerii localurilor cat si ospatarii acestora au raspuns pozitiv in ceea ce priveste
+            solutia data de noi si dispusi sa colaboreze daca acest lucru le va imbunatati activitatea.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h3 class="subTitle">Validarea ideii</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <p>In urma analizei studiului de caz efectuat putem spune ca ideea a fost validata si se doreste o aplicatie
+            care sa imbunatateasca experienta consumatorului si activitatea desfasurata de catre angajatii localurilor.</p>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="activeMilestone === 3">
+      <div class="row">
+        <div class="col-12">
+          <h1 class="mainTitle">Milestone 3</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h3 class="subTitle"><a href="https://book-a-table.github.io/landing_page/" target="_blank">Landing page</a></h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h3 class="subTitle">Wireframe</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-sm-4">
+          <img src="assets/img/wireframe/logare.png" alt="Pagina de logare">
+        </div>
+        <div class="col-12 col-sm-4">
+          <img src="assets/img/wireframe/inregistrare.png" alt="Pagina de inregistrare">
+        </div>
+        <div class="col-12 col-sm-4">
+          <img src="assets/img/wireframe/cauta.png" alt="Pagina de cautare">
+        </div>
+        <div class="col-12 col-sm-4">
+          <img src="assets/img/wireframe/filtreaza.png" alt="Pagina de filtrare a rezultatelor">
+        </div>
+        <div class="col-12 col-sm-4">
+          <img src="assets/img/wireframe/informatii.png" alt="Pagina cu informatii despre local">
+        </div>
+        <div class="col-12 col-sm-4">
+          <img src="assets/img/wireframe/rezerva.png" alt="Pagina de rezervari">
+        </div>
+        <div class="col-12 col-sm-4">
+          <img src="assets/img/wireframe/grup.png" alt="Pagina pentru creare grup">
+        </div>
+        <div class="col-12 col-sm-4">
+          <img src="assets/img/wireframe/comanda.png" alt="Pagina pentru comenzi online">
+        </div>
+      </div>
+    </div>
+    <div *ngIf="activeMilestone === 4">
+      <div class="row">
+        <div class="col-12">
+          <h1 class="mainTitle">Milestone 4</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h3 class="subTitle">Interviuri</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h6>Interviu 1:</h6>
+          <p>Locatia: un restaurant din zona universitate<br />
+            Timp: seara<br />
+            Intervievat: masterand si angajat full time<br />
+            <br />
+            Intrebare: Salutare, ma bucur sa te revad! Arata bine telefonul tau! E nou?
+            Raspuns: Salut! Nu, il am de ceva timp, doar sunt foarte atent cu el, a devenit un "must have", stii doar,
+            internet si tot ce avem nevoie.
+            Intrebare: Da, stiu despre ce vorbesti si toate aplicatiile care apar pe piata. Ce parere ai despre ele?
+            Raspuns: Maps-ul ma salveaza mereu, acum m-a adus direct la destinatie. Mi-ar fi placut sa fi putut afla si
+            meniul de aici, sunt infometat si vreau sa comand repede ceva. Imi poti da meniul tau pana vine osptarul?
+            Intrebare: Sigur, poftim. Cum crezi ca te-ar fi ajutat daca stiai dinainte sa ajungi aici?
+            Raspuns: Daca stiam produsele si preturile, ma hotaram din timp, te rugam sa-mi comanzi tu , iar cand
+            ajungeam aici as fi putut servi in doar cateva minute.
+            Intrebare: Si daca ti-as spune ca exista o aplicatie care te-ar ajuta in privinta asta?
+            Raspuns: Ar fi super, as ecosomisi timp, zi-mi doar de unde o pot descarca.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h6>Interviu 2:</h6>
+          <p>Locatia: Grozavesti<br />
+            Timp: pauza de masa din timpul programului de lucru<br />
+            Intervievat: angajat full time, familist<br />
+            <br />
+            Intrebare: Ce ai dori sa faci in pauza de masa?
+            Raspuns: In ora in care ma pot desprinde de birou, task-uri si alte activitati de genul, m-as relaxa pe o
+            banca de-a lungul Dambovitei. Insa, desi o ora pare a fi suficienta, uneori nu e timp nici pentru a servi
+            masa.
+            Intrebare: Cum obisnuiesti sa mananci? Comanzi, mergi la un local sau iti iei pachet pregatit de acasa?
+            Raspuns: Imi place sa merg la restaurant, sa fiu servit la masa intr-o atmosfera placuta si relaxanta, dar
+            dureaza prea mult, iar seara ajung destul de tarziu acasa, timpul ramas prefer sa il petrec cu familia. Si
+            din aceste motive, in majoritatea cazurilor prefer sa comand ceva.
+            Intrebare: Ce dureaza cel mai mult la servirea unei mese la un restaurant?
+            Raspuns: Procesul de baza dureaza mult. Oricat de receptiv si de rapid ar fi ospatarul, aducerea meniului,
+            preluarea
+            comenzii, aducerea notei de plata, toate acestea dureaza si se repeta peste tot.
+            Intrebare: Daca ar exista un tool care ar ajuta in privinta asta, ai fi dispus sa-I incerci?
+            Raspuns: Daca as economisi timp din servirea mesei si as avea timp si pentru altceva, cu siguranta.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h6>Interviu 3:</h6>
+          <p>Intervievat: transportator(sofer) pe ruta interna<br />
+            <br />
+            Intrebare: Cat de dificil este sa gasesti un local in care poti servi masa intr-un oras necunoscut?
+            Raspuns: Avand in vedere ca ma plimb in toata tara si nu ajung mereu in aceleasi locuri, pentru mine e
+            foarte dificil.
+            Intrebare: Consideri asta o problema pe care o intampini des?
+            Raspuns: Da
+            Intrebare: Ce te-ar ajuta sa o rezolvi?
+            Raspuns: M-ar ajuta foarte mult sa stiu dinainte unde as putea manca la ultima descarcare deoarece sunt
+            foarte presat de timp.
+            Intrebare: Dupa ce criterii alegi un local?
+            Raspuns: In functie de distanta de la descarcare, de parerile oamenilor, produsele din meniu si timpul de
+            procesare si servire a comenzii.
+            Intrebare: Conteaza si metoda prin care achiti nota de plata?
+            Raspuns: Da, prefer sa platesc cu cardul sau cu telefonul, pentru ca e riscant pentru mine sa detin bani
+            cash.
+            Intrebare: In functie de informatiile aflate despre un local ai fi dispus sa platesti pentru produsele
+            alese
+            inainte de a ajunge la locatie sau de a le servi?
+            Raspuns: Da, faptul ca doar as ajunge la restaurant si as servi mancarea, pentru asta imi imaginez ca ar
+            functiona lucrurile intr-un caz ideal, ar fi un beneficiu pentru mine deoarece sunt mereu obosit si nu imi
+            permit sa pierd timp.
+            Intrebare: Fiind curier expres, folosesti frecvent internetul si aplicatiile mobile in uz de serviciu, dar
+            le-ai folosi si in uz personal?
+            Raspuns: Da, nu sunt dependent de aplicatii, m-as descurca si fara, dar mereu aleg calea mai usoara si mai
+            rapida.
+            Intrebare: Daca ti-as spune ca exista o aplicatie cu ajutorul careia ai putea rezerva o masa la localul
+            dorit, plasa comanda si chiar si achita, toate acestea pentru a economisi timp, ai folosi-o si in timpul
+            liber?
+            Raspuns: Ar fi ideal pentru serviciu, dar daca as fi in timpul liber, cu siguranta nu m-as grabi. As alege
+            cel mai bun restaurant, in functie de parerile celorlalti, acolo as servi produsele recomandate de ospatar,
+            de obicei acestea sunt cele mai bune si m-as bucura de atmosfera localului. In cazul asta mi-ar placea sa
+            am informatiile necesare pentru a alege cel mai bun local si sa pot rezerva o masa la ora la care doresc.
+            Desigur, mi-ar placea sa stiu dinainte preturile pentru a nu fi pus intr-o situatie neplacuta.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h5>Concluzii:</h5>
+          <p>In urma interviurilor putem trage concluzia ca am pornit pe drumul cel bun si solutia noastra este una
+            asteptata. Utilizatorii doresc o aplicatie cu o gama larga de localuri care recenzii atat pentru local cat
+            si pentru produsele acestuia. Isi doresc sa aiba un meniu complet si actualizat si vor sa aiba
+            posibilitatea de a plati online.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h3 class="subTitle">Persona</h3>
+        </div>
+      </div>
+      <div class="col-9 col-sm-3">
+        <img src="assets/img/user/it-manager.jpg" alt="IT Manager - Ciubotaru Andrei">
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <p>"Pune-te la treaba, lucreaza din toata inima si vei reusi!”</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h5>Date:</h5>
+          <ul>
+            <li>Nume: Ciubotaru Andrei</li>
+            <li>Varsta: 32 ani. Locuiteste in Bucuresti.</li>
+            <li>Job: Manager de proiect. Are un buget de 5000 de ron pe luna.</li>
+            <li>Statut: Este casatorit si are o fetita de 3 ani.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h5>Cum arata o zi din viata lui:</h5>
+          <ul>
+            <li>Se trezeste devreme pentru a lua micul dejun cu familia.</li>
+            <li>Petrece destul de mult timp la servici.
+            <li>Organizeaza sedinte si tine prezentari</li>
+            <li>Iese la masa cu colegii</li>
+            <li>Organizeaza iesi la localuri cu clientii</li>
+            <li>Seara prefera sa isi petreaca timp cu familia</li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h3 class="subTitle">User stories</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <ul>
+            <li>Ca utilizator vreau sa am posibilitatea de a cauta un local dupa nume, oras, tip si bucatarie pentru a
+              imi rezerva o masa</li>
+            <li>Ca utilizator vreau sa am posibilitatea de a face o rezervare la localul gasit pentru a fi sigur ca voi
+              avea o masa rezervata</li>
+            <li>Ca utilizator vreau sa am posibilitatea de a vedea meniul online pentru a face comanda din timp</li>
+            <li>Ca utilizator vreau sa am posibilitatea sa imi creez un grup in care sa pot adauga oameni pentru a
+              gestiona mai usor rezervarile si comenzile online</li>
+            <li>Ca utilizator vreau sa am posibilitatea de a plati nota de plata online pentru a nu mai fi nevoie sa
+              astept dupa nota de plata</li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h3 class="subTitle">User cases</h3>
+        </div>
+      </div>
+      <div class="col-10 col-sm-6">
+        <img src="assets/img/user/user_case.png" alt="IT Manager - Ciubotaru Andrei">
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h3 class="subTitle">User flows</h3>
+        </div>
+      </div>
+      <div class="col-10 col-sm-6">
+        <img src="assets/img/user/user_flow.png" alt="IT Manager - Ciubotaru Andrei">
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h3 class="subTitle">Wireframe</h3>
+        </div>
+      </div>
+      <div class="col-12">
+        <p>in urma interviurilor, feedback-ul privind interfata aplicatiei a fost pozitiv, majoritatea considerand-o
+          intuitiva, simpla si usor de folosit. Am avut cateva sugestii precum diferite functionalitatea de cautare si
+          modalitati rating a localurilor. Wireframe-ul a fost modificat pe baza informatiilor descoperite. </p>
+      </div>
+    </div>
+    <div *ngIf="activeMilestone === 5">
+      <div class="row">
+        <div class="col-12">
+          <h1 class="mainTitle">Milestone 5</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h3 class="subTitle">Sectiune de colectare in landing page</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <ul>
+            <li>Am adaugat la inceputul landing page-ului un formular pentru colectarea e-mailului si am reusit sa
+              colectam 107 email-uri.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-10 col-sm-7">
+        <img src="assets/img/colectare/landing_page.png" alt="Landing page">
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h3 class="subTitle">Analiza landing page-ului</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <ul>
+            <li>Am adaugat scriptul HotJar pe pagina noastra pentru a primi feedback cu privire la activitate celor
+              care
+              ne viziteaza pagina. Conform cu datele colectate de pe HotJar putem spune ca landing page-ul este corect
+              realizat. 273 de
+              utilizatori au accesta pagina si putem vedea ca punctele de interes se afla la indemana acestora.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-10 col-sm-7">
+        <img src="assets/img/colectare/click_map.jpg" alt="HotJar click map">
+      </div>
+      <div class="col-10 col-sm-7">
+        <img src="assets/img/colectare/scrool_map.jpg" alt="HotJar scrool map">
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <p></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <ul>
+            <li>Platforma Google Analytics a fost utilizata pentru a tine o evidenta a vizitelor potentialilor clienti
+              ai
+              aplicatiei noastre. Se observa faptul ca durata medie pe care o petrec utilizatorii pe site-ul nostru
+              este
+              de 1 minute ceea ce demonstreaza ca acestia sunt interesati de aplicatie si informatiile sunt usor de
+              gasit.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-10 col-sm-7">
+        <img src="assets/img/colectare/google.png" alt="Google analytics">
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h3 class="subTitle">Promovare</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <p>Am ales sa ne promovam atat prin relelele de socializare cat si prin metodele traditionale. De asemenea am
+            avut sprijin si de la cateva localuri care ne-au permis sa punem flayere la masa.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-10 col-sm-4">
+          <img src="assets/img/promovare/facebook.jpg" alt="Facebook post">
+        </div>
+        <div class="col-10 col-sm-4">
+          <img src="assets/img/promovare/whatapp.png" alt="whatApp post">
+        </div>
+        <div class="col-10 col-sm-4">
+          <img src="assets/img/promovare/flayer.png" alt="Flayer">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <p>Facebook este mijlocul ideal prin care se poate realiza o promovare rapida si eficienta a unui produs dupa
+            cum se poate vedea si in sondaj. Rezultate foarte buna au aratat si metodele traditionale prin impartirea
+            de flayere.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-10 col-sm-6">
+          <img src="assets/img/promovare/sondaj.png" alt="Sondaj">
+        </div>
+      </div>
+    </div>
+    <div *ngIf="activeMilestone === 6">
+      <div class="row">
+        <div class="col-12">
+          <h1 class="mainTitle">Milestone 6</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h3 class="subTitle">Piata tinta</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <p>Cel mai nou studiu al Unilever Food Solutions despre obiceiurile si experientele romanilor cand iau masa
+            in oras arata care sunt motivele pentru care romanii mananca in oras, precum si diferentele dintre
+            atitudinile barbatilor si cele ale femeilor legate de servirea mesei. Potrivit studiului, barbatii
+            bucuresteni nu invoca printre motivele pentru care prefera sa manance in oras lipsa timpului, ci ies sa
+            manance in oras pentru ca le place mancarea (16%), pentru ca nu sunt nevoiti sa gateasca (16%), pentru ca
+            pot interactiona social (15%) si pentru ca se pot bucura de o mare varietate de feluri de mancare (9%).
+            in cazul femeilor, ele prefera sa manance in oras pentru ca nu sunt nevoite sa gateasca (22%), pentru ca
+            pot interactiona social (15%), pentru ca le place mancarea (13%), precum si atmosfera (10%).
+            in schimb, printre motivele pentru care consumatorilor nu le place sa manance in oras se numara calitatea
+            serviciilor, faptul ca localurile sunt prea aglomerate si zgomotoase si mancarea nu este buna/sanatoasa (nu
+            cunosc sursa ingredientelor), precum si faptul ca sunt nevoiti sa astepte prea mult pentru mancarea
+            comandata.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h3 class="subTitle">Competitia</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <p>Concurenta reprezinta validarea pietei. Faptul ca afacerile similare care au aparut deja functioneaza
+            inseamna ca exista o piata activa pentru acest produs, existand o nevoie stabilita pentru ceea ce oferim.
+            in urma analizei pietei am concluzionat faptul ca exista 3 aplicatii ce ofera o parte din functionalitatile
+            oferite de noi: FoodPanda, iaLoc si Out4Food. </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h5>FoodPanda</h5>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <p>Venitul este constituit din comisioane percepute de la furnizorii de mancare.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <ul>
+            <li>Peste 400 de restaurante si branduri exclusive.</li>
+            <li>Livratori la domiciliu.</li>
+            <li>Serviciu de relatii cu clientii.</li>
+            <li>Disponibil in toata Romania.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h5>iaLoc</h5>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <p>Venitul este constituit din abonamente lunare oferite colaboratorilor.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <ul>
+            <li>Aplicatie online si mobile.</li>
+            <li>Disponibil in 4 orase din Romania.</li>
+            <li>Ofera rezervari online.</li>
+            <li>Ofera o aplicatie de gestiune a comenzilor localurilor cu care colaboreaza.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h5>Out4Food</h5>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <p>Venitul este constituit din castigurile in urma consumatiilor.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <ul>
+            <li>Aplicatie mobile.</li>
+            <li>Detinut de grupul City Grill(un lant de localuri din Bucuresti).</li>
+            <li>Organizeaza evenimente.</li>
+            <li>Rezervari online.</li>
+            <li>Comenzi si plati online.</li>
+            <li>Reduceri si recompense pentru fidelitate .</li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h3 class="subTitle">Cota de piata</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <ul>
+            <li>Anul 1: ne asteptam ca cota noastra de piata sa fie de aproximativ 20%, tinand cont de faptul ca se
+              adreseaza unui public larg</li>
+            <li>Anul 2: ne asteptam ca cota noastra de piata sa creasca usor la 30%</li>
+            <li>Anul 3: ne asteptam ca monopolul nostru de pe piata sa dispara, din cauza aparitiei altor
+              concurenti sau prin extinderea domeniului de functionalitati oferite de actualii competitori. Vom incerca
+              sa
+              ne pastram procentul la 35%</li>
+            <li>Anul 4: vom urma un plan de crestere si vom incerca sa adaugam noi caracteristici atractive, care ne
+              vor permite sa atragem piata in detrimentul concurentului. Ne asteptam la o crestere de pana la 50% cel
+              putin.</li>
+            <li>Anul 5: vom incerca sa incheiem un acord cu alti concurenti si sa ne marim piata, oferind clientilor
+              nostri cea mai buna aplicatie, cu un procent de 70% din cota de piata</li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h3 class="subTitle">Cota de piata totala</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <p>Ne asteptam ca numarul persoanelor care doresc sa foloseassca aplicatia sa creasca anual, precum si
+            valoarea totala a
+            pietei.</p>
+          <ul>
+            <li>
+              Anul 1: Valoarea totala de piata: 1 milion RON. Dupa cum ne asteptam ca procentul din cota noastra de
+              piata sa fie de aproximativ 20%, valoarea sa va fi, prin urmare, de aproximativ 200.000 RON</li>
+            <li>Anul 2: valoarea de piata totala: 1,2 milioane RON. Deoarece ne asteptam ca procentul din cota noastra
+              de piata sa fie de aproximativ 30%, valoarea sa va fi de aproximativ 360.000 RON</li>
+            <li>Anul 3: Valoarea de piata totala: 1,3 milioane RON. Deoarece ne asteptam ca procentul din cota noastra
+              de piata sa fie de aproximativ 35%, valoarea sa va fi, prin urmare, in jur de 455.000 RON</li>
+            <li>Anul 4: Valoarea totala de piata: 1,7 milioane RON. Cum ne asteptam ca procentul din cota noastra de
+              piata sa fie de aproximativ 50%, valoarea sa va fi de aproximativ 850.000 RON.</li>
+            <li>Anul 5: Valoarea totala de piata: 2,5 milioane RON. Cum ne asteptam ca procentul din cota noastra de
+              piata sa fie de aproximativ 70%, valoarea sa va fi de aproximativ 1750.000 RON.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="activeMilestone === 7">
+      <div class="row">
+        <div class="col-12">
+          <h1 class="mainTitle">Milestone 7</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <p>Aceasta etapa are ca scop validarea problemei si solute identificate.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h3 class="subTitle">Identificarea problemei</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <p></p>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="activeMilestone === 8">
+      <div class="row">
+        <div class="col-12">
+          <h1 class="mainTitle">Milestone 8</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <p>Aceasta etapa are ca scop validarea problemei si solute identificate.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h3 class="subTitle">Identificarea problemei</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <p></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  Copyright © 2018 BookATable
+</footer>

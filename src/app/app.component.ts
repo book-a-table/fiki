@@ -7,4 +7,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'fiki';
+  activeMilestone = 0;
+  navbarOpen = false;
+
+  toggleNavbar() {
+    this.navbarOpen = !this.navbarOpen;
+  }
+
+  setActiveMilestone(activeMilestone : any) {
+    this.activeMilestone = activeMilestone;
+    if(this.navbarOpen === true) {
+      this.toggleNavbar();
+    }
+  }
 }

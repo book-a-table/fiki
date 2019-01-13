@@ -1,0 +1,47 @@
+.content {
+    min-height: calc(100vh - 2rem); 
+}
+
+.footer {
+    height: 2rem;
+    background: #343a40;
+    color: white;
+    line-height: 2rem;
+    width: 100%;
+    text-align: center;
+}
+
+img.logo {
+    width: 5rem;
+    height: auto;
+}
+
+img.competitor {
+    width: 0.8rem;
+    height: auto;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+h1.mainTitle {
+    padding-top: 3rem;
+    padding-bottom: 1rem;
+}
+
+h3.subTitle {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.card.team {
+    width: 20.5rem;
+    height: auto;
+}
+
+.card.competitor {
+    width: 15.5rem;
+    height: auto;
+}
